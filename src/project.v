@@ -7,7 +7,7 @@
 
 `timescale 1ns / 1ps
 
-module posit_mac (
+module tt_um_posit_mac (
     input  wire       clk,
     input  wire       rst_n,
     input  wire [7:0] in_a,
