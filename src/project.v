@@ -6,25 +6,21 @@
 `default_nettype none
 `timescale 1ns / 1ps
 
+
 module tt_um_posit_mac_stream (
     input  wire        clk,
     input  wire        rst_n,
+    input  wire        ena,      // REQUIRED by Tiny Tapeout
 
-    // Tiny Tapeout inputs
-    input  wire [7:0]  ui_in,     // A input
-    input  wire [7:0]  uio_in,    // B input (bidirectional pins used as input)
+    input  wire [7:0]  ui_in,    // A input
+    input  wire [7:0]  uio_in,   // B input (used as input)
 
-    // Tiny Tapeout outputs
-    output reg  [7:0]  uo_out     // Result output
+    output reg  [7:0]  uo_out    // Result output
 );
 
-    // Internal accumulator (C)
     reg [7:0] acc;
-
-    // MAC output
     wire [7:0] mac_out;
 
-    // Your original MAC (unchanged)
     posit_mac_8bit u_mac (
         .in_a(ui_in),
         .in_b(uio_in),
@@ -34,12 +30,13 @@ module tt_um_posit_mac_stream (
 
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
-            acc    <= 8'b0;   // Initialize C = 0
+            acc    <= 8'b0;
             uo_out <= 8'b0;
-        end else begin
-            acc    <= mac_out;  // C = A*B + C
-            uo_out <= mac_out;  // Stream result
+        end else if (ena) begin
+            acc    <= mac_out;   // accumulate only when enabled
+            uo_out <= mac_out;
         end
+        // else: hold state when ena == 0
     end
 
 endmodule
