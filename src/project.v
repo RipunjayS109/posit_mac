@@ -8,17 +8,14 @@
 
 
 module tt_um_posit_mac_stream (
-    input  wire        clk,
-    input  wire        rst_n,
-    input  wire        ena,      // REQUIRED by Tiny Tapeout
-
     input  wire [7:0]  ui_in,    // A input
-    input  wire [7:0]  uio_in,   // B input (used as input)
-
-    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
-    output wire [7:0] uio_out,  // IOs: Output path
-
     output reg  [7:0]  uo_out    // Result output
+    input  wire [7:0]  uio_in,   // B input (used as input)
+    output wire [7:0] uio_out,  // IOs: Output path
+    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
+    input  wire        ena,      // REQUIRED by Tiny Tapeout
+    input  wire        clk,
+    input  wire        rst_n,  
 );
 
     assign uio_oe = 0;
