@@ -16,11 +16,15 @@ module tt_um_posit_mac_stream (
     input  wire [7:0]  uio_in,   // B input (used as input)
 
     output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
+    output wire [7:0] uio_out,  // IOs: Output path
 
     output reg  [7:0]  uo_out    // Result output
 );
 
     assign uio_oe = 0;
+    assign uio_out = 0;
+
+    
     reg [7:0] acc;
     wire [7:0] mac_out;
 
