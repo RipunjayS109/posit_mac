@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Your Name
+ * Copyright (c) 2024 Ripunjay Singh
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -15,9 +15,12 @@ module tt_um_posit_mac_stream (
     input  wire [7:0]  ui_in,    // A input
     input  wire [7:0]  uio_in,   // B input (used as input)
 
+    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
+
     output reg  [7:0]  uo_out    // Result output
 );
 
+    assign uio_oe = 0;
     reg [7:0] acc;
     wire [7:0] mac_out;
 
