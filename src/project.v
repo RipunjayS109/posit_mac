@@ -2,9 +2,9 @@
  * Copyright (c) 2024 Ripunjay Singh
  * SPDX-License-Identifier: Apache-2.0
  */
-
-`default_nettype none
 `timescale 1ns / 1ps
+`default_nettype none
+
 
 
 module tt_um_posit_mac_stream (
