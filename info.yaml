@@ -1,7 +1,7 @@
 # Tiny Tapeout project information
 project:
   title:        "8Bit Posit MAC Unit"      # Project title
-  author:       "Ripunjay Singh, Muzaffar Asim Ansari, Aniket Singha, Sachin, Pradyut Kumar Sanki, Gaurav Kaushal, Biswabandhu Jana"      # Your name
+  author:       "Ripunjay Singh, Muzaffar Asim Ansari, Aniket Singha, Sachin, Ashutosh Anand, Pradyut Kumar Sanki, Gaurav Kaushal, Biswabandhu Jana"      # Your name
   discord:      "ripunjaysingh_38609"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "Its a MAC unit that uses Posit Number system fot operation."      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
